@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#5A3085">
+  <meta name="description" content="V Care Integration provides residential and commercial electrical, CCTV, AV and PA, networking, intercom, solar, EV charging and maintenance services in Singapore.">
+  <title>V Care Integration | Residential & Commercial Services Singapore</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Original VCI logo colours */
+      --magenta: #E1175D;
+      --purple: #5A3085;
+      --purple-mid: #7D2E85;
+
+      /* Supporting website palette */
+      --ink: #231F20;
+      --body: #45414A;
+      --muted: #77717D;
+      --white: #FFFFFF;
+      --background: #FFFFFF;
+      --background-soft: #F8F7FA;
+      --background-lavender: #F1EDF5;
+      --background-pink: #FCEEF3;
+      --background-grey: #F3F4F6;
+      --border: #E5E1E9;
+      --border-strong: #D5CEDD;
+      --focus: #6B4AA0;
+
+      --font-heading: "Manrope", sans-serif;
+      --font-body: "Inter", sans-serif;
+      --container: 1200px;
+      --radius: 14px;
+      --shadow: 0 18px 55px rgba(49, 30, 65, .09);
+      --gradient: linear-gradient(110deg, #5A3085 0%, #7D2E85 48%, #E1175D 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--body);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+    .container { width: min(var(--container), calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 100px 0; }
+    .section-soft { background: var(--background-soft); }
+    .section-lavender { background: var(--background-lavender); }
+    .section-pink { background: var(--background-pink); }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: 1.14;
+    }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.2rem); }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.55rem); }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+    p { margin: 0 0 18px; }
+    .lead {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--magenta);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      width: 25px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+    .section-heading { max-width: 760px; margin-bottom: 48px; }
+    .section-heading p { margin-top: 20px; }
+
+    .btn {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: var(--magenta);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #C91150;
+      box-shadow: 0 9px 22px rgba(225,23,93,.2);
+    }
+    .btn-purple { background: var(--purple); }
+    .btn-purple:hover { background: #432267; }
+    .btn-outline {
+      border-color: var(--border-strong);
+      background: transparent;
+      color: var(--purple);
+    }
+    .btn-outline:hover {
+      border-color: var(--purple);
+      background: var(--background-lavender);
+      box-shadow: none;
+    }
+    .btn-white { background: #fff; color: var(--purple); }
+    .btn-white:hover { background: var(--background-pink); color: var(--magenta); }
+    .arrow { font-size: 18px; line-height: 1; }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      border-bottom: 1px solid rgba(229,225,233,.85);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .brand img { width: 225px; max-height: 62px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.3vw, 30px); }
+    .nav-links a {
+      color: #49434D;
+      font-size: 13px;
+      font-weight: 700;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--magenta); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .nav-actions .btn { min-height: 44px; padding: 10px 16px; font-size: 13px; }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--purple);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 86px;
+      background:
+        radial-gradient(circle at 83% 34%, rgba(225,23,93,.08), transparent 28%),
+        radial-gradient(circle at 70% 78%, rgba(90,48,133,.10), transparent 34%),
+        linear-gradient(115deg, #FFFFFF 0%, #FBF9FC 55%, #F1EDF5 100%);
+    }
+    .hero::before {
+      position: absolute;
+      top: -230px;
+      right: -170px;
+      width: 650px;
+      height: 650px;
+      border: 1px solid rgba(90,48,133,.13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 45px rgba(90,48,133,.025), 0 0 0 90px rgba(225,23,93,.025);
+      content: "";
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 55px;
+    }
+    .hero-copy { max-width: 680px; }
+    .hero h1 span {
+      color: var(--magenta);
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-copy .lead { margin: 25px 0 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .hero-note strong { color: var(--ink); }
+    .note-dot {
+      width: 9px;
+      height: 9px;
+      flex: 0 0 9px;
+      border-radius: 50%;
+      background: var(--magenta);
+      box-shadow: 0 0 0 6px rgba(225,23,93,.1);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+    }
+    .integration-orbit {
+      position: relative;
+      width: min(100%, 460px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(90,48,133,.22);
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, rgba(241,237,245,.85) 55%, rgba(252,238,243,.7) 100%);
+      box-shadow: 0 25px 75px rgba(70,39,92,.10);
+    }
+    .integration-orbit::before,
+    .integration-orbit::after {
+      position: absolute;
+      inset: 35px;
+      border: 1px dashed rgba(90,48,133,.3);
+      border-radius: 50%;
+      content: "";
+    }
+    .integration-orbit::after {
+      inset: 92px;
+      border-style: solid;
+      border-color: rgba(225,23,93,.28);
+    }
+    .orbit-centre {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 126px;
+      height: 126px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 33px;
+      font-weight: 800;
+      letter-spacing: -.08em;
+      transform: translate(-50%,-50%);
+      box-shadow: 0 15px 35px rgba(90,48,133,.25);
+    }
+    .orbit-node {
+      position: absolute;
+      display: grid;
+      width: 76px;
+      height: 76px;
+      place-items: center;
+      border: 1px solid rgba(90,48,133,.16);
+      border-radius: 20px;
+      background: #fff;
+      color: var(--purple);
+      box-shadow: 0 12px 28px rgba(49,30,65,.09);
+    }
+    .orbit-node svg { width: 31px; height: 31px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .orbit-node.n1 { top: 3%; left: 42%; }
+    .orbit-node.n2 { top: 39%; right: 0; }
+    .orbit-node.n3 { bottom: 3%; left: 42%; }
+    .orbit-node.n4 { top: 39%; left: 0; }
+    .orbit-label {
+      position: absolute;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--purple);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+    .orbit-label.label-a { top: 18%; right: 9%; }
+    .orbit-label.label-b { bottom: 18%; left: 8%; }
+    .hero-badge {
+      position: absolute;
+      right: -5px;
+      bottom: 18px;
+      max-width: 220px;
+      padding: 17px 20px;
+      border-left: 4px solid var(--magenta);
+      background: var(--purple);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .hero-badge strong { display: block; font-family: var(--font-heading); font-size: 17px; }
+    .hero-badge span { display: block; margin-top: 3px; color: #E9DFF1; font-size: 11px; }
+
+    /* Quick capabilities */
+    .quick-strip { border-bottom: 1px solid var(--border); background: #fff; }
+    .quick-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; padding: 27px 0; }
+    .quick-item { display: flex; align-items: center; gap: 13px; }
+    .quick-mark {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--background-pink);
+      color: var(--magenta);
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 800;
+    }
+    .quick-item strong { display: block; color: var(--ink); font-family: var(--font-heading); font-size: 13px; }
+    .quick-item span:last-child { display: block; color: var(--muted); font-size: 11px; }
+
+    /* Intro */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      align-items: center;
+      gap: 80px;
+    }
+    .intro-visual {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 4px;
+      background:
+        linear-gradient(rgba(90,48,133,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90,48,133,.07) 1px, transparent 1px),
+        linear-gradient(140deg, #F1EDF5, #FCEEF3);
+      background-size: 28px 28px, 28px 28px, auto;
+    }
+    .intro-visual::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(90,48,133,.35);
+      border-radius: 50%;
+      box-shadow: 0 0 0 30px rgba(90,48,133,.04), 0 0 0 60px rgba(225,23,93,.04);
+      content: "";
+      transform: translate(-50%,-50%);
+    }
+    .intro-visual::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 125px;
+      height: 125px;
+      border-radius: 30px;
+      background: var(--gradient);
+      content: "";
+      transform: translate(-50%,-50%) rotate(45deg);
+      box-shadow: 0 18px 40px rgba(90,48,133,.22);
+    }
+    .intro-visual-label {
+      position: absolute;
+      z-index: 1;
+      right: 18px;
+      bottom: 18px;
+      padding: 12px 16px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .intro-copy h2 { margin-bottom: 23px; }
+    .intro-copy .lead { margin-bottom: 18px; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 8px;
+      color: var(--magenta);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .text-link:hover { color: var(--purple); }
+
+    /* Six service icons in a 2 x 3 desktop grid */
+    .services-heading-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .services-heading-row .section-heading { margin-bottom: 44px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0 28px; }
+    .service-card {
+      position: relative;
+      min-height: 260px;
+      padding: 30px 22px 28px 0;
+      border-top: 1px solid var(--border-strong);
+    }
+    .service-card:nth-child(3n+2) { padding-left: 8px; }
+    .service-card:nth-child(3n) { padding-left: 16px; }
+    .service-icon {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 22px;
+      place-items: center;
+      border: 1px solid #EBD4E0;
+      border-radius: 15px;
+      background: var(--background-pink);
+      color: var(--magenta);
+    }
+    .service-card:nth-child(even) .service-icon {
+      border-color: #DDD0E9;
+      background: var(--background-lavender);
+      color: var(--purple);
+    }
+    .service-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service-card h3 { margin-bottom: 11px; font-size: 19px; }
+    .service-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .service-card a {
+      display: inline-flex;
+      margin-top: 15px;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Integration feature */
+    .feature {
+      position: relative;
+      overflow: hidden;
+      background: var(--purple);
+      color: #fff;
+    }
+    .feature::before {
+      position: absolute;
+      top: -230px;
+      right: -120px;
+      width: 650px;
+      height: 650px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+      box-shadow: 0 0 0 55px rgba(255,255,255,.025), 0 0 0 110px rgba(255,255,255,.02);
+      content: "";
+    }
+    .feature-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 75px;
+    }
+    .feature h2 { color: #fff; }
+    .feature .eyebrow { color: #F7B9D0; }
+    .feature-copy p { margin-top: 22px; color: #E9DFF1; }
+    .feature-copy .btn { margin-top: 15px; }
+    .feature-art {
+      position: relative;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+    }
+    .feature-rings {
+      position: relative;
+      width: min(100%, 340px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.13), transparent 68%);
+    }
+    .feature-rings::before, .feature-rings::after {
+      position: absolute;
+      inset: 34px;
+      border: 1px dashed rgba(255,255,255,.35);
+      border-radius: 50%;
+      content: "";
+    }
+    .feature-rings::after { inset: 83px; border-style: solid; }
+    .feature-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 94px;
+      height: 94px;
+      place-items: center;
+      border-radius: 28px;
+      background: var(--gradient);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 25px;
+      font-weight: 800;
+      transform: translate(-50%,-50%) rotate(45deg);
+    }
+    .feature-core span { transform: rotate(-45deg); }
+
+    /* Process */
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 25px; counter-reset: process; }
+    .process-step {
+      padding-top: 22px;
+      border-top: 2px solid var(--magenta);
+      counter-increment: process;
+    }
+    .process-step::before {
+      display: block;
+      margin-bottom: 24px;
+      color: var(--magenta);
+      content: "0" counter(process);
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .process-step h3 { margin-bottom: 11px; font-size: 18px; }
+    .process-step p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Portfolio / sectors */
+    .sectors-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .sector {
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .sector:hover {
+      transform: translateY(-4px);
+      border-color: rgba(225,23,93,.45);
+      box-shadow: var(--shadow);
+    }
+    .sector-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--background-lavender);
+      color: var(--purple);
+      font-family: var(--font-heading);
+      font-weight: 800;
+    }
+    .sector strong { color: var(--ink); font-family: var(--font-heading); font-size: 15px; }
+
+    /* CTA */
+    .cta-band { padding: 76px 0; background: var(--background-pink); }
+    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .cta-inner h2 { max-width: 700px; font-size: clamp(2rem, 3.7vw, 3.2rem); }
+    .cta-inner p { margin: 13px 0 0; color: var(--muted); }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; }
+    .contact-copy h2 { margin-bottom: 20px; }
+    .contact-copy > p { color: var(--muted); }
+    .contact-details { display: grid; gap: 20px; margin-top: 34px; }
+    .contact-detail { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+    .contact-symbol {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--background-pink);
+      color: var(--magenta);
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .contact-detail strong { display: block; color: var(--ink); font-size: 13px; }
+    .contact-detail a, .contact-detail span { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+    .contact-detail a:hover { color: var(--magenta); }
+    .contact-form {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .contact-form h3 { margin-bottom: 8px; }
+    .contact-form > p { margin-bottom: 24px; color: var(--muted); font-size: 14px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: grid; gap: 7px; margin-bottom: 16px; }
+    .field-full { grid-column: 1 / -1; }
+    .field label { color: var(--ink); font-size: 12px; font-weight: 700; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 13px;
+      border: 1px solid var(--border-strong);
+      border-radius: 5px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: 2px solid rgba(90,48,133,.18);
+      border-color: var(--purple);
+    }
+    .form-note { margin: 14px 0 0; color: var(--muted); font-size: 11px; }
+    .form-status { min-height: 22px; margin-top: 12px; color: var(--purple); font-size: 13px; }
+
+    /* Footer */
+    .footer { padding: 64px 0 26px; background: var(--ink); color: #D8D3DC; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 55px;
+      padding-bottom: 45px;
+    }
+    .footer-logo { width: 210px; max-height: 58px; object-fit: contain; margin-bottom: 18px; }
+    .footer-intro { max-width: 360px; color: #C0B9C7; font-size: 14px; }
+    .footer-col h3 { margin-bottom: 18px; color: #fff; font-size: 14px; letter-spacing: 0; }
+    .footer-col a, .footer-col p {
+      display: block;
+      margin-bottom: 10px;
+      color: #C0B9C7;
+      font-size: 13px;
+    }
+    .footer-col a:hover { color: #F28BAE; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      color: #A9A1B0;
+      font-size: 11px;
+    }
+
+    /* Two persistent mobile contact actions */
+    .mobile-contact { display: none; }
+
+    @media (max-width: 1000px) {
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 12px; }
+      .nav-actions .btn { padding-inline: 12px; }
+      .hero-grid { gap: 30px; }
+      .intro-grid, .feature-grid, .contact-grid { gap: 42px; }
+      .sectors-grid { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 72px; }
+      body { padding-bottom: 68px; }
+      .container { width: min(100% - 32px, var(--container)); }
+      .section { padding: 70px 0; }
+      .nav-wrap { min-height: 72px; }
+      .brand img { width: 185px; max-height: 52px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-actions { margin-left: auto; }
+      .nav-actions .btn { display: none; }
+      .nav-links {
+        position: absolute;
+        top: 71px;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 20px 18px;
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+        box-shadow: 0 18px 28px rgba(40,25,50,.08);
+      }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 13px 4px; border-bottom: 1px solid var(--border); font-size: 14px; }
+      .hero { padding: 62px 0 54px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-copy .lead { margin: 20px 0 24px; }
+      .hero-art { min-height: 340px; margin: 0 4px; }
+      .integration-orbit { width: min(100%, 340px); }
+      .orbit-node { width: 62px; height: 62px; border-radius: 16px; }
+      .orbit-node svg { width: 25px; height: 25px; }
+      .orbit-centre { width: 100px; height: 100px; font-size: 28px; }
+      .hero-badge { right: -4px; bottom: 0; max-width: 185px; padding: 13px 15px; }
+      .quick-grid { grid-template-columns: 1fr; gap: 17px; padding: 24px 0; }
+      .intro-grid, .feature-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .intro-visual { min-height: 290px; }
+      .services-heading-row { display: block; }
+      .services-heading-row .section-heading { margin-bottom: 32px; }
+      .services-grid { grid-template-columns: repeat(2,1fr); gap: 0 16px; }
+      .service-card, .service-card:nth-child(3n+2), .service-card:nth-child(3n) {
+        min-height: 265px;
+        padding: 22px 6px 22px 0;
+      }
+      .service-card h3 { font-size: 17px; }
+      .service-card p { font-size: 13px; }
+      .service-icon { width: 52px; height: 52px; }
+      .service-icon svg { width: 27px; height: 27px; }
+      .feature-grid { gap: 18px; }
+      .feature-art { min-height: 285px; }
+      .feature-rings { width: min(82vw, 290px); }
+      .process-grid { grid-template-columns: repeat(2,1fr); gap: 30px 20px; }
+      .sectors-grid { grid-template-columns: repeat(2,1fr); }
+      .cta-band { padding: 58px 0; }
+      .cta-inner { display: block; }
+      .cta-inner .btn { margin-top: 24px; }
+      .contact-form { padding: 24px 18px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 6px; }
+      .mobile-contact {
+        position: fixed;
+        z-index: 80;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 9px 12px calc(9px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--border);
+        background: rgba(255,255,255,.97);
+        box-shadow: 0 -8px 24px rgba(40,25,50,.09);
+        backdrop-filter: blur(12px);
+      }
+      .mobile-contact a {
+        display: flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        border-radius: 5px;
+        background: var(--magenta);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      .mobile-contact a:last-child { background: var(--purple); }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: clamp(2.45rem, 12vw, 3.45rem); }
+      h2 { font-size: clamp(2rem, 9vw, 2.7rem); }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .btn { width: 100%; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 0 12px; }
+      .service-card, .service-card:nth-child(3n+2), .service-card:nth-child(3n) { min-height: 280px; }
+      .service-card h3 { font-size: 16px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .sectors-grid { gap: 10px; }
+      .sector { min-height: 140px; padding: 16px; }
+      .form-grid { grid-template-columns: 1fr; gap: 0; }
+      .field-full { grid-column: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > :first-child { grid-column: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="V Care Integration home">
+        <img src="VC.png" alt="V Care Integration logo">
+      </a>
+
+      <nav class="nav-links" id="main-navigation" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Our Approach</a>
+        <a href="#sectors">Who We Serve</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn" href="https://wa.me/6589447626" target="_blank" rel="noopener">WhatsApp Us <span class="arrow">↗</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Residential & commercial services · Singapore</p>
+          <h1>Connected solutions for <span>better spaces.</span></h1>
+          <p class="lead">From electrical and security systems to networking, AV integration and property maintenance, V Care Integration helps homes and businesses keep essential spaces connected and working.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/6589447626" target="_blank" rel="noopener">Discuss your requirements <span class="arrow">↗</span></a>
+            <a class="btn btn-outline" href="#services">Explore our services</a>
+          </div>
+          <div class="hero-note">
+            <span class="note-dot" aria-hidden="true"></span>
+            <span><strong>One service partner.</strong> Multiple residential and commercial solutions.</span>
+          </div>
+        </div>
+
+        <div class="hero-art" role="img" aria-label="Abstract illustration representing connected building systems">
+          <div class="integration-orbit">
+            <div class="orbit-centre">VCI</div>
+            <div class="orbit-node n1" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M16 3v10M11 8l5 5 5-5"/><path d="M7 17h18v11H7z"/><path d="M12 21h8"/></svg>
+            </div>
+            <div class="orbit-node n2" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M4 13 16 4l12 9v15H4z"/><path d="M12 28v-9h8v9"/><path d="M10 14h.01M22 14h.01"/></svg>
+            </div>
+            <div class="orbit-node n3" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M4 10h24M8 10v14h16V10"/><path d="M12 15h8M12 19h8"/><path d="M16 4v6"/></svg>
+            </div>
+            <div class="orbit-node n4" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M11 13h10M11 18h6M13 25v3M19 25v3"/></svg>
+            </div>
+            <span class="orbit-label label-a">SMARTER SYSTEMS</span>
+            <span class="orbit-label label-b">PRACTICAL SUPPORT</span>
+          </div>
+          <div class="hero-badge">
+            <strong>V Care Integration</strong>
+            <span>Your residential and commercial service partner</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-strip" aria-label="Service highlights">
+      <div class="container quick-grid">
+        <div class="quick-item">
+          <span class="quick-mark">01</span>
+          <div><strong>Technical systems</strong><span>Installation and integration</span></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-mark">02</span>
+          <div><strong>Residential & commercial</strong><span>Solutions for different spaces</span></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-mark">03</span>
+          <div><strong>Maintenance support</strong><span>Ongoing service assistance</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container intro-grid">
+        <div class="intro-visual" role="img" aria-label="Abstract VCI brand graphic">
+          <span class="intro-visual-label">V CARE INTEGRATION · SINGAPORE</span>
+        </div>
+        <div class="intro-copy">
+          <p class="eyebrow">About VCI</p>
+          <h2>Bringing essential building services together.</h2>
+          <p class="lead">V Care Integration Pte Ltd supports residential and commercial customers with a broad range of technical systems and property services.</p>
+          <p>Its service offering spans electrical works, CCTV and card access, audio-visual and public address systems, networking, intercom, IP clock systems, solar solutions, EV charging and maintenance support.</p>
+          <p>By bringing these capabilities under one service partner, VCI aims to make it easier for customers to discuss their requirements, plan work and arrange the support their properties need.</p>
+          <a class="text-link" href="https://vci.com.sg/identify.html">Discover VCI <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="services">
+      <div class="container">
+        <div class="services-heading-row">
+          <div class="section-heading">
+            <p class="eyebrow">Services & solutions</p>
+            <h2>Practical expertise across connected spaces.</h2>
+            <p class="lead">Explore six service groups that bring together VCI's published residential and commercial capabilities.</p>
+          </div>
+          <a class="btn btn-outline" href="https://vci.com.sg/">View official website <span class="arrow">↗</span></a>
+        </div>
+
+        <!-- Six individually designed SVG icons, in two rows of three on desktop -->
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 32 32" role="img" aria-label="Electrical systems icon">
+                <path d="M18 3 8 17h7l-1 12 10-15h-7z"/>
+              </svg>
+            </div>
+            <h3>Electrical Systems</h3>
+            <p>Electrical installation, wiring, lighting, power points, switches, troubleshooting and maintenance support.</p>
+            <a href="https://vci.com.sg/electrical.html">Explore electrical services ↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 32 32" role="img" aria-label="Security and access systems icon">
+                <rect x="5" y="7" width="22" height="18" rx="3"/>
+                <circle cx="16" cy="16" r="4"/>
+                <path d="M10 25v3M22 25v3M16 12v-2"/>
+              </svg>
+            </div>
+            <h3>CCTV & Card Access</h3>
+            <p>Security camera and access control solutions for residential, commercial and industrial environments.</p>
+            <a href="https://vci.com.sg/cctv.html">Explore security systems ↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 32 32" role="img" aria-label="Audio visual and PA systems icon">
+                <rect x="4" y="5" width="24" height="16" rx="2"/>
+                <path d="M12 27h8M16 21v6"/>
+                <path d="m12 11 8 4-8 4z"/>
+              </svg>
+            </div>
+            <h3>AV & PA Systems</h3>
+            <p>Audio-visual integration and public address solutions for meeting rooms, classrooms and shared spaces.</p>
+            <a href="https://vci.com.sg/avpa.html">Explore AV & PA systems ↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 32 32" role="img" aria-label="Networking and telecom systems icon">
+                <rect x="5" y="5" width="22" height="8" rx="2"/>
+                <rect x="5" y="19" width="22" height="8" rx="2"/>
+                <path d="M10 9h.01M14 9h.01M10 23h.01M14 23h.01M21 9h2M21 23h2M16 13v6"/>
+              </svg>
+            </div>
+            <h3>Networking & Telecom</h3>
+            <p>Structured cabling, fibre optic, voice and data infrastructure and telecommunications support.</p>
+            <a href="https://www.vci.com.sg/network.html">Explore network systems ↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 32 32" role="img" aria-label="Intercom and communication systems icon">
+                <rect x="8" y="4" width="16" height="24" rx="3"/>
+                <circle cx="16" cy="11" r="2"/>
+                <path d="M12 18h8M12 22h8M13 28v2M19 28v2"/>
+              </svg>
+            </div>
+            <h3>Intercom & IP Clock</h3>
+            <p>Communication and timing systems for properties that need coordinated, convenient operation.</p>
+            <a href="https://vci.com.sg/intercom.html">Explore intercom services ↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 32 32" role="img" aria-label="Energy and maintenance systems icon">
+                <path d="M4 13 16 5l12 8M7 12v15h18V12"/>
+                <path d="m16 14-4 6h4l-1 5 5-7h-4z"/>
+              </svg>
+            </div>
+            <h3>Energy & Property Support</h3>
+            <p>Solar and EV charging solutions alongside maintenance and plumbing support for properties.</p>
+            <a href="https://vci.com.sg/evcharge.html">Explore EV charging ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature">
+      <div class="container feature-grid">
+        <div class="feature-copy">
+          <p class="eyebrow">A connected service approach</p>
+          <h2>More than individual installations.</h2>
+          <p>Building systems work best when their requirements are considered together. VCI's service range covers electrical, security, communication, audio-visual and network infrastructure, supported by maintenance services.</p>
+          <p>Whether the requirement is a single system or several services for a property, start with a conversation about the space and the work involved.</p>
+          <a class="btn btn-white" href="https://wa.me/6589447626" target="_blank" rel="noopener">Discuss your project <span class="arrow">↗</span></a>
+        </div>
+        <div class="feature-art" aria-hidden="true">
+          <div class="feature-rings">
+            <div class="feature-core"><span>VCI</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">How we work</p>
+          <h2>From first conversation to ongoing support.</h2>
+          <p class="lead">A clear service journey helps customers understand the next step and communicate what their property requires.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step">
+            <h3>Understand</h3>
+            <p>Discuss the property, the systems involved and the outcome you need.</p>
+          </article>
+          <article class="process-step">
+            <h3>Assess & Plan</h3>
+            <p>Arrange the relevant consultation or site visit and work through the requirements.</p>
+          </article>
+          <article class="process-step">
+            <h3>Implement</h3>
+            <p>Coordinate the agreed installation or service work for the selected systems.</p>
+          </article>
+          <article class="process-step">
+            <h3>Support</h3>
+            <p>Discuss technical support and maintenance requirements for the property.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-lavender" id="sectors">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Who we serve</p>
+          <h2>Solutions for different kinds of spaces.</h2>
+          <p class="lead">VCI describes its services for residential and commercial customers, with portfolio information also referring to work across several facility types.</p>
+        </div>
+        <div class="sectors-grid">
+          <article class="sector">
+            <span class="sector-mark">01</span>
+            <strong>Residential properties</strong>
+          </article>
+          <article class="sector">
+            <span class="sector-mark">02</span>
+            <strong>Commercial buildings</strong>
+          </article>
+          <article class="sector">
+            <span class="sector-mark">03</span>
+            <strong>Education facilities</strong>
+          </article>
+          <article class="sector">
+            <span class="sector-mark">04</span>
+            <strong>Retail & logistics spaces</strong>
+          </article>
+        </div>
+        <p style="margin-top:18px;color:#77717D;font-size:12px;">Sector references reflect categories described in VCI's published website and portfolio.</p>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div>
+          <p class="eyebrow">Have a project in mind?</p>
+          <h2>Let's find the right solution for your space.</h2>
+          <p>Tell VCI what you need for your home, office or building.</p>
+        </div>
+        <a class="btn" href="https://wa.me/6589447626" target="_blank" rel="noopener">Start a WhatsApp enquiry <span class="arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact VCI</p>
+          <h2>Tell us what your property needs.</h2>
+          <p>For electrical, security, AV, networking, intercom, energy or maintenance enquiries, get in touch with V Care Integration.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-symbol" aria-hidden="true">T</span>
+              <div><strong>Telephone</strong><a href="tel:+6589447626">+65 8944 7626</a></div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-symbol" aria-hidden="true">@</span>
+              <div><strong>Email</strong><a href="mailto:vcaretek22@gmail.com">vcaretek22@gmail.com</a></div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-symbol" aria-hidden="true">W</span>
+              <div><strong>WhatsApp</strong><a href="https://wa.me/6589447626" target="_blank" rel="noopener">Message VCI directly</a></div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-symbol" aria-hidden="true">A</span>
+              <div><strong>Address</strong><span>614 Bedok Reservoir Road, #03-1204, Singapore 470614</span></div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="enquiry-form">
+          <h3>Send an enquiry</h3>
+          <p>Share your details and the type of service you are looking for.</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email address *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Contact number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="service">Service required</label>
+              <select id="service" name="service">
+                <option>Electrical systems</option>
+                <option>CCTV and card access</option>
+                <option>AV and PA systems</option>
+                <option>Networking and telecom</option>
+                <option>Intercom and IP clock</option>
+                <option>Solar and EV charging</option>
+                <option>Maintenance and plumbing</option>
+                <option>Other enquiry</option>
+              </select>
+            </div>
+            <div class="field field-full">
+              <label for="message">Tell us about your requirements *</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <button class="btn" type="submit">Prepare email enquiry <span class="arrow">↗</span></button>
+          <p class="form-note">This form opens your default email application. It does not store or transmit information on this website.</p>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="VC.png" alt="V Care Integration logo">
+          <p class="footer-intro">Residential and commercial services, technical systems integration and maintenance support in Singapore.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <a href="#about">About VCI</a>
+          <a href="#services">Services</a>
+          <a href="#approach">Our approach</a>
+          <a href="#sectors">Who we serve</a>
+          <a href="https://vci.com.sg/portfolio.html">Portfolio</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="tel:+6589447626">+65 8944 7626</a>
+          <a href="mailto:vcaretek22@gmail.com">vcaretek22@gmail.com</a>
+          <a href="https://wa.me/6589447626" target="_blank" rel="noopener">WhatsApp VCI</a>
+          <p>614 Bedok Reservoir Road, #03-1204, Singapore 470614</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> V Care Integration Pte Ltd. All rights reserved.</span>
+        <span>Connected solutions for better spaces.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Exactly two persistent mobile contact actions -->
+  <div class="mobile-contact" aria-label="Quick contact">
+    <a href="tel:+6589447626">Call VCI ↗</a>
+    <a href="https://wa.me/6589447626" target="_blank" rel="noopener">WhatsApp ↗</a>
+  </div>
+
+  <script>
+    (() => {
+      const menuButton = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector("#main-navigation");
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        menuButton.textContent = isOpen ? "×" : "☰";
+      });
+
+      navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navigation.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation");
+          menuButton.textContent = "☰";
+        });
+      });
+
+      document.querySelector("#year").textContent = new Date().getFullYear();
+
+      const form = document.querySelector("#enquiry-form");
+      const status = document.querySelector("#form-status");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const subject = encodeURIComponent("Website enquiry — " + data.get("service"));
+        const body = encodeURIComponent(
+          "Hello V Care Integration,\n\n" +
+          "I would like to make an enquiry.\n\n" +
+          "Name: " + data.get("name") + "\n" +
+          "Email: " + data.get("email") + "\n" +
+          "Contact number: " + (data.get("phone") || "Not provided") + "\n" +
+          "Service required: " + data.get("service") + "\n\n" +
+          "Requirements:\n" + data.get("message") + "\n\n" +
+          "Thank you."
+        );
+
+        status.textContent = "Opening your email application with the enquiry details.";
+        window.location.href = "mailto:vcaretek22@gmail.com?subject=" + subject + "&body=" + body;
+      });
+    })();
+  </script>
+</body>
+</html>
